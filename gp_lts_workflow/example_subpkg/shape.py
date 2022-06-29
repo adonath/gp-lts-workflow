@@ -1,6 +1,6 @@
 import astropy.units as u
 
-class Square:
+class Rectangle:
     """Implement a square.
 
     Parameters
