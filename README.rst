@@ -5,6 +5,10 @@ A package to practice the Gammapy LTS workflow
     :target: http://www.astropy.org
     :alt: Powered by Astropy Badge
 
+Motivation
+----------
+
+This is a dummy repo to prepare for future releases of the gammapy package.
 
 License
 -------
