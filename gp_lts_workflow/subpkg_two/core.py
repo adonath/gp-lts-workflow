@@ -1,6 +1,6 @@
 def print_sum(a, b):
     """Functions printing the sum of two numbers and returns True.
-    
+
     Parameters
     ----------
     a : int or float
