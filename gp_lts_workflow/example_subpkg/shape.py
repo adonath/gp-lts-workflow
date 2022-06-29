@@ -6,9 +6,9 @@ class Rectangle:
 
     Parameters
     ----------
-    x : `~astropy.units;Quantity`
+    x : `~astropy.units.Quantity`
         x size
-    y : `~astropy.units;Quantity`
+    y : `~astropy.units.Quantity`
         y size
     """
 
