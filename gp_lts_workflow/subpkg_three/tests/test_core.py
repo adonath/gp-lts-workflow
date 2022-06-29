@@ -1,5 +1,5 @@
 from .. import square
-from numpy.testing import assert_allclose, assert
+from numpy.testing import assert_allclose
 
 
 def test_square():

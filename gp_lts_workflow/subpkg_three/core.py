@@ -6,9 +6,9 @@ def square(x):
     >>> square(-2)
     4
 
-    Parameters:
-    ---------
-    x: float
+    Parameters
+    ----------
+    x : float
     """
 
     return x * x
