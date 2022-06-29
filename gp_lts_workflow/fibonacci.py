@@ -1,21 +1,21 @@
 """
-Every good ccientist needs doubly recursive fibonacci numbers
+Every good scientist needs doubly recursive fibonacci numbers
 """
 
 
 def fibonacci(n: int) -> int:
     '''
-    Calculate the nth fibonacci number.
+    Calculate the nth Fibonacci number.
 
     Parameters
     ----------
     n : int
-        Which fibonacci number to compute
+        Which Fibonacci number to compute
 
     Returns
     -------
     fib_n : int
-        the nth fibonacci number
+        the nth Fibonacci number
     '''
     if n < 0:
         raise ValueError(f'n must be >= 0, got {n}')
