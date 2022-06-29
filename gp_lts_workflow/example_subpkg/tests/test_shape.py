@@ -13,3 +13,5 @@ def test_rectangle():
 def test_unit_rectangle():
     with pytest.raises(u.UnitsError):
         Rectangle(1 * u.s, 1 * u.m)
+    with pytest.raises(ValueError):
+        Rectangle(-1 * u.m, 1 * u.m)
