@@ -8,7 +8,7 @@ def print_sum(a, b):
     b : int or float
         second addend
     """
-    sum = a + b
-    print(f"sum of {a:.2f} + {b:.2f} = {sum:.2f}")
+    _sum = a + b
+    print(f"sum of {a:.2f} + {b:.2f} = {_sum:.2f}")
 
     return True
