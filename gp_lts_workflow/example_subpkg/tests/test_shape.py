@@ -1,5 +1,5 @@
-import astropy.unit as u
-from example_subpkg import Rectangle
+import astropy.units as u
+from ..shape import Rectangle
 
 def test_rectangle():
     rectangle = Rectangle(1*u.m, 1*u.m)
