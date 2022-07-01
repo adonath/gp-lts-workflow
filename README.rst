@@ -5,49 +5,65 @@ A package to practice the Gammapy LTS workflow
     :target: http://www.astropy.org
     :alt: Powered by Astropy Badge
 
-Motivation
-----------
+## Versioning Scheme
+We will follow the [Astropy versioning scheme]().
+This means for Gammapy we will use a numbering scheme like:
+```
+x.y.z
+```
+Where, `x = major`, `y = minor`, `z = bugfix`.
 
-This is a dummy repo to prepare for future releases of the gammapy package.
+Within each "category" the numbers are counted from 0. Check the following examples:
 
-License
--------
+```
+* 1.0.0 (LTS release)
+* 1.0.1 (LTS bugfix release)
+* 1.0.2 (2nd LTS bugfix release)
+* 1.1.0 (feature release, six months after 1.0.0)
+* 1.1.1 etc.
+* 1.0.3 (3rd LTS bugfix release)
+* 1.1.2
+* 1.2.0 (six months after 1.1.0)
+* 1.2.1
+* 1.3.0 (six months after 1.2.0)
+* 1.0.4
+* 1.3.1
+* 2.0.0 (LTS release)
+```
 
-This project is Copyright (c) Gammapy developers and licensed under
-the terms of the BSD 3-Clause license. This package is based upon
-the `Astropy package template <https://github.com/astropy/package-template>`_
-which is licensed under the BSD 3-clause license. See the licenses folder for
-more information.
+## How to do a LTS release
+
+A a rough guideline:
+- On the feature freeze date a new release branch is created, named e.g. `v1.0.x`.
+- A feature freeze will mean **no more major new feature pull requests will be accepted for that version**, but minor improvements, bug fixes, or documentation additions are still acceptable.
+- From this point on the release happens from this branch `v1.0.x`. 
+- First create a release candidate i.e. tag `v1.0rc1`, collect feedback from beta testers and developers for ~1 week.
+- If additonal issue are found those should be fixed and a new release candidate `v1.0rc2` is tagged. A new testing period starts
+- Tag `v1.0` and release
+
+If you would like to take the role of a release manager you need an account for [TestPyPi](https://test.pypi.org). If you don't have one, create one here: https://test.pypi.org/account/register/. 
+
+Follow [Astropy Affiliated Package release instructions](https://docs.astropy.org/en/latest/development/astropy-package-template.html)
+
+Upload test release:
+```
+twine upload --repository testpypi dist/*
+```
+
+Install from TestPypi:
+```
+python3 -m pip install --index-url https://test.pypi.org/simple/ your-package
+```
+
+Install release candidate:
+```
+python3 -m pip install --pre --index-url https://test.pypi.org/simple/ your-package
+```
 
 
-Contributing
-------------
+## Ressources
+- [Astropy affiliated package template]()
+- [Astropy APE 2](https://github.com/astropy/astropy-APEs/blob/main/APE2.rst#version-numbering)
+- [Astropy affiliated package release instructions](https://docs.astropy.org/en/latest/development/astropy-package-template.html)
+- [Astropy LTS release instructions]()
 
-We love contributions! gp_lts_workflow is open source,
-built on open source, and we'd love to have you hang out in our community.
-
-**Imposter syndrome disclaimer**: We want your help. No, really.
-
-There may be a little voice inside your head that is telling you that you're not
-ready to be an open source contributor; that your skills aren't nearly good
-enough to contribute. What could you possibly offer a project like this one?
-
-We assure you - the little voice in your head is wrong. If you can write code at
-all, you can contribute code to open source. Contributing to open source
-projects is a fantastic way to advance one's coding skills. Writing perfect code
-isn't the measure of a good developer (that would disqualify all of us!); it's
-trying to create something, making mistakes, and learning from those
-mistakes. That's how we all improve, and we are happy to help others learn.
-
-Being an open source contributor doesn't just mean writing code, either. You can
-help out by writing documentation, tests, or even giving feedback about the
-project (and yes - that includes giving feedback about the contribution
-process). Some of these contributions may be the most valuable to the project as
-a whole, because you're coming to the project with fresh eyes, so you can see
-the errors and assumptions that seasoned contributors have glossed over.
-
-Note: This disclaimer was originally written by
-`Adrienne Lowe <https://github.com/adriennefriend>`_ for a
-`PyCon talk <https://www.youtube.com/watch?v=6Uj746j9Heo>`_, and was adapted by
-gp_lts_workflow based on its use in the README file for the
-`MetPy project <https://github.com/Unidata/MetPy>`_.
