@@ -1,3 +1,4 @@
+import numpy as np
 import astropy.units as u
 
 
@@ -23,3 +24,23 @@ class Rectangle:
     def area(self):
         """Rectangle area."""
         return self.x * self.y
+
+class Circle:
+    """Implement a circle.
+
+    Parameters
+    ----------
+    r : `~astropy.units;Quantity`
+        radius
+   """
+
+    @u.quantity_input
+    def __init__(self, r: u.cm):
+        if r.value <= 0:
+            raise ValueError("Dimensions should be positive.")
+        self.r = r
+
+    @property
+    def area(self):
+        """Circle area."""
+        return np.pi*self.r**2

@@ -1,6 +1,7 @@
 import pytest
+from numpy.testing import assert_allclose
 import astropy.units as u
-from ..shape import Rectangle
+from ..shape import Rectangle, Circle
 
 
 def test_rectangle():
@@ -15,3 +16,9 @@ def test_unit_rectangle():
         Rectangle(1 * u.s, 1 * u.m)
     with pytest.raises(ValueError):
         Rectangle(-1 * u.m, 1 * u.m)
+
+def test_circle():
+    circle = Circle(1 * u.m)
+    area = circle.area
+
+    assert_allclose(area.to_value("cm2"), 31456)
