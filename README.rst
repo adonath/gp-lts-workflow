@@ -6,6 +6,7 @@ A package to practice the Gammapy LTS workflow
     :alt: Powered by Astropy Badge
 
 ## Versioning Scheme
+
 We will follow the [Astropy versioning scheme]().
 This means for Gammapy we will use a numbering scheme like:
 ```
