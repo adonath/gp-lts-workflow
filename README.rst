@@ -19,7 +19,6 @@ Where, `x = major`, `y = minor`, `z = bugfix`.
 
 Within each "category" the numbers are counted from 0. Check the following examples:
 
-```
 * 1.0.0 (LTS release)
 * 1.0.1 (LTS bugfix release)
 * 1.0.2 (2nd LTS bugfix release)
@@ -33,7 +32,6 @@ Within each "category" the numbers are counted from 0. Check the following examp
 * 1.0.4
 * 1.3.1
 * 2.0.0 (LTS release)
-```
 
 # How to do a LTS release
 
@@ -69,6 +67,7 @@ python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-u
 
 
 ## Ressources
+
 - [Astropy affiliated package template](https://github.com/astropy/package-template)
 - [Astropy APE 2](https://github.com/astropy/astropy-APEs/blob/main/APE2.rst#version-numbering)
 - [Astropy affiliated package release instructions](https://docs.astropy.org/en/latest/development/astropy-package-template.html)
