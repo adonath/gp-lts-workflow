@@ -6,7 +6,8 @@ A package to practice the Gammapy LTS workflow
     :alt: Powered by Astropy Badge
 
 
-# Versioning Scheme
+Versioning Scheme
+~~~~~~~~~~~~~~~~~
 
 We will follow the [Astropy versioning scheme]().
 This means for Gammapy we will use a numbering scheme like:
@@ -33,7 +34,8 @@ Within each "category" the numbers are counted from 0. Check the following examp
 * 1.3.1
 * 2.0.0 (LTS release)
 
-# How to do a LTS release
+How to do a LTS release
+~~~~~~~~~~~~~~~~~~~~~~~
 
 As a rough guideline:
 - On the feature freeze date a new release branch is created, named e.g. `v1.0.x`.
@@ -66,7 +68,8 @@ python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-u
 ```
 
 
-## Ressources
+Ressources
+~~~~~~~~~~
 
 - [Astropy affiliated package template](https://github.com/astropy/package-template)
 - [Astropy APE 2](https://github.com/astropy/astropy-APEs/blob/main/APE2.rst#version-numbering)
