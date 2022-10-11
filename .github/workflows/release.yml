@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release-pypi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        run: git fetch --tags
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python --version
+          pip install -U build
+          python -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+  release-github:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: ${{ github.workspace }}/docs/release-notes/v1.1.rst
+          prerelease: contains(github.ref_name, "rc")
+          
