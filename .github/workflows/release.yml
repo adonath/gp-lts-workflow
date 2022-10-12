@@ -39,8 +39,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          body: |
-            A Python package for gamma-ray astronomy. See [changelog for this release](https://github.com/adonath/gp-lts-workflow/blob/main/docs/release-notes/v1.1.rst)
-
-          prerelease: contains(github.ref_name, 'rc')
+          body_path: ${{ github.workspace }}/dev/gh-release-template.md
+          prerelease: ${{ contains(github.ref_name, 'rc')
           
