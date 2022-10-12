@@ -1,1 +1,0 @@
-A Python package for gamma-ray astronomy. See [changelog for this release](https://github.com/adonath/gp-lts-workflow/blob/main/docs/release-notes/v1.1.rst)
