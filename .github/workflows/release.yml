@@ -53,8 +53,8 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.DOCS_TOKEN}}
+          token: ${{ secrets.DOCS_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: release
-          client-payload: '{"release": "${{ github.ref_name }}}"'
+          client-payload: '{"release": "${{ github.ref_name }}"}'
           
