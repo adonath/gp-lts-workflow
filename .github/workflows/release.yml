@@ -56,5 +56,5 @@ jobs:
           token: ${{ secrets.DOCS_TOKEN}}
           repository: ${{ matrix.repo }}
           event-type: release
-          client_payload: '{"release": "${{ github.ref_name }}}"'
+          client-payload: '{"release": "${{ github.ref_name }}}"'
           
