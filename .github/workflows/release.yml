@@ -32,6 +32,7 @@ jobs:
           password: ${{ secrets.PYPI_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
   release-github:
+    needs: release-pypi
     runs-on: ubuntu-latest
     if:  ${{ !contains(github.ref_name, 'rc') }}
     steps:
@@ -41,8 +42,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           body_path: |
-            Gammapy is a Python package for gamma-ray astronomy. See [changelog for this release](https://github.com/adonath/gp-lts-workflow/blob/main/docs/release-notes/${{ github.ref_name}}.rst)
-  dispatch:
+            Gammapy is a Python package for gamma-ray astronomy. See [changelog for this release](https://github.com/adonath/gp-lts-workflow/blob/main/docs/release-notes/${{ github.ref_name}}.rst).
+  dispatch-repos:
     needs: release-pypi
     strategy:
       matrix:
@@ -54,5 +55,6 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: ${{ matrix.repo }}
-          event-type: release-dispatch
+          event-type: release
+          client_payload: '{"release": "${{ github.ref_name }}}"'
           

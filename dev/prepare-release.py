@@ -2,27 +2,32 @@ from os import stat
 
 
 import click
-import pathlib
+import yaml
+from pathlib import Path
+from datetime import date
+import logging
+
+log = logging.getLogger(__name__)
 
 
-def reserve_doi():
-    # Use Zenodo API to reserve a DOI
-    pass
+def update_citation_cff(release):
+    # TODO: update author list according to PIG 24
+    citation_path = Path(__file__).parent / "CITATION.cff"
+
+    with citation_path.open("r") as f:
+        data = yaml.safe_load(f)
+    
+    data["date-released"] = date.today()
+    data["version"] = release
+
+    with citation_path.open("w") as f:
+        log.info(f"Writing {f}")
+        yaml.safe_dump(data, f)
 
 
-def update_citation_cff():
-    # update author list according to PIG 24
-    # Add reseced DOI
-    # Adapt version and release date
-    pass
-
-
-def update_gh_release_template():
-    pass
-
-
+@click.option("--release", help="Release tag")
 def cli(release):
-    pass
+    update_citation_cff(release=release)
     
 
 if __name__ == "__main__":
